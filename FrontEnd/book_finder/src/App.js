@@ -11,9 +11,10 @@ const App=()=> {
       <p>Heloo</p>
 
       <Switch>
+        <Route path="/EmployeeSalaryList" component={EmployeeSalaryList}/>
           <Route path="/EmployeeList" component={EmployeeList}/>
-          <Route path="/EmployeeSalaryList" component={EmployeeSalaryList}/>
-          <Redirect to="/EmployeeList"/>
+          
+          <Redirect to="/EmployeeSalaryList"/>
       </Switch>
 
     </div>
