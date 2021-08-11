@@ -2,13 +2,15 @@ import React,{useState} from 'react';
 import {Route,Switch,withRouter,Redirect} from 'react-router-dom';
 import Classes from './App.css';
 
+import NavBar from './components/navBar'
 import EmployeeList from './components/employeeList';
 import EmployeeSalaryList from './components/employeeSalaryList';
 
 const App=()=> {
   return (
     <div className={Classes.App}>
-      <p>Heloo</p>
+      
+      <NavBar/>
 
       <Switch>
         <Route path="/EmployeeSalaryList" component={EmployeeSalaryList}/>

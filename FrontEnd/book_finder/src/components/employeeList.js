@@ -6,6 +6,8 @@ import  Classes from './components.css';
 const EmployeeList=()=> {
 
    const [data,setData]=useState([]);
+   const [search,setSearch]=useState('');
+   const [msg,setMsg]=useState('');
 
    useEffect(() => {
       loadData();
@@ -32,15 +34,40 @@ const EmployeeList=()=> {
 
       axios.get('/chnageEmployeeAccess/'+action+'/'+id)
          .then(r=>{
-            console.log(r.data, "dd");
+           
             setData(r.data);
          })
    }
 
+   const searchResult=()=>{
+      axios.post('/emplpyee/list',{ID:search})
+         .then(r=>{
+            console.log(r.data, "dd");
+
+            if(r.data!='notFound'){
+               setData(r.data);
+               setMsg('');
+            }
+            else{
+               setMsg('Not Found!');
+            }
+         })
+         .catch(e=>{
+            console.log(e);
+         })
+   }
 
   return (
     <div className={Classes.App}>
       <h3>Employee List</h3>
+      <div>
+         <input onChange={e=>setSearch(e.target.value)}/>
+         
+         <button onClick={()=>searchResult()}>SEARCH</button>
+         <br/>
+         <h5 style={{color:"red"}}>{msg}</h5>
+         <br/>
+      </div>
 
       <table>
          <tr>
@@ -61,10 +88,10 @@ const EmployeeList=()=> {
                   <td>{d.ProPic}</td>
                   <td>{d.Rank}</td>
                   <td>{d.BanStatus}</td>
-                  <td>
+                  <td style={{color:'blue'}}>
                      <div onClick={()=>acountAction(d.Rank,d.ID)}>{d.Rank=='Admin'?'Demotion':'Promotion'}</div>
                   </td>
-                  <td>
+                  <td style={{color:'red'}}>
                      <div onClick={()=>acountAction(d.BanStatus,d.ID)}>{d.BanStatus=='true'?'Enable':'Disable'}</div>
                   </td>
                </tr>
