@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import {Route,Switch,withRouter,Redirect} from 'react-router-dom';
+import Classes from './App.css';
 
-function App() {
+import EmployeeList from './components/employeeList';
+import EmployeeSalaryList from './components/employeeSalaryList';
+
+const App=()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Classes.App}>
+      <p>Heloo</p>
+
+      <Switch>
+          <Route path="/EmployeeList" component={EmployeeList}/>
+          <Route path="/EmployeeSalaryList" component={EmployeeSalaryList}/>
+          <Redirect to="/EmployeeList"/>
+      </Switch>
+
     </div>
   );
 }
