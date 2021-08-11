@@ -12,6 +12,16 @@
 
 }
 
+button{
+   width: 80px;
+   margin:5px;
+   border:2px #5d5fc7 solid;
+   color: #5d5fc7 ;
+   font-size: 15px;
+   font-weight: 600;
+   border-radius: 4px;
+}
+
 table{
    margin-left: auto;
    margin-right: auto;

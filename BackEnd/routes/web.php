@@ -44,7 +44,14 @@ Route::get('/', function () {
 
 
     //Economic
+   
+
+    //done
+
     Route::get('/user/economic/{year}', 'EconomicController@earningData');
+
+
+
     //Route::get('/user/economic/{year}', 'EconomicController@earningDataByYear');
 // });
 //Route::get('/emplpyee/add', 'EmployeeController@create');

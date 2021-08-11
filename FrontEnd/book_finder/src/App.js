@@ -5,17 +5,18 @@ import Classes from './App.css';
 import NavBar from './components/navBar'
 import EmployeeList from './components/employeeList';
 import EmployeeSalaryList from './components/employeeSalaryList';
+import EchoStat from './components/earningStatics';
 
 const App=()=> {
   return (
     <div className={Classes.App}>
-      
+
       <NavBar/>
 
       <Switch>
         <Route path="/EmployeeSalaryList" component={EmployeeSalaryList}/>
           <Route path="/EmployeeList" component={EmployeeList}/>
-          
+          <Route path="/EchoStatics" component={EchoStat}/>
           <Redirect to="/EmployeeSalaryList"/>
       </Switch>
 

@@ -11,8 +11,10 @@ class EconomicController extends Controller
         $allEesult = DB::table('earnings_data')
         ->where('Year',  $year)
         ->get();  
-        $result = json_decode($allEesult, true);
 
-        return view('Economic.earningTable')->with('allEesult',$result);
+        return  $allEesult;
+        // $result = json_decode($allEesult, true);
+
+        // return view('Economic.earningTable')->with('allEesult',$result);
     }
 }
