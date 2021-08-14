@@ -6,24 +6,34 @@ import axios  from '../hoc/auxx';
 
 const EmployeeAdd=()=> {
 
-
+   const [errMsg,setErrMsg]=useState('');
 
    const submitHandler=(event)=>{
-     // console.log(event.target.elements.propic);
-     
 
-      axios.post('/emplpyee/add',{
-         Email:event.target.elements.email.value,
-         Address:event.target.elements.address.value,
-         Name:event.target.elements.name.value,
-         DOB:event.target.elements.dob.value,
-         image:event.target.elements.propic.value,
-         Rank:event.target.elements.rank.value,
+      //console.log(event.target.propic.files[0]);
 
-      })
-         .then(r=>[
-            console.log(r.data)
+      if(event.target.elements.email.value==''||event.target.elements.address.value==''
+         ||event.target.elements.name.valu==''||event.target.propic.files[0].name==''){
+
+            setErrMsg('Please Fill-Up the text box');
+      }
+      else if(event.target.propic.files[0].name!='jpg'){
+         setErrMsg('Image should me jpg');
+      }
+      else{
+         axios.post('/emplpyee/add',{
+            Email:event.target.elements.email.value,
+            Address:event.target.elements.address.value,
+            Name:event.target.elements.name.value,
+            DOB:event.target.elements.dob.value,
+            image:event.target.propic.files[0].name,
+            Rank:event.target.elements.rank.value,
+
+         })
+            .then(r=>[
+               console.log(r.data)
          ])
+      }
 
          event.preventDefault();
    }
@@ -31,7 +41,10 @@ const EmployeeAdd=()=> {
 return (
    <div className={Classes.App}>
 
+      <h2>ADD NEW EMPLOYEE</h2>
       <form onSubmit={e=>submitHandler(e)}>
+         <div style={{color:'red'}}>{errMsg}</div>
+         <br/>
          <table>
             <tr>
                <td>Name</td>
@@ -52,7 +65,7 @@ return (
             </tr>
             <tr>
                <td>DOB</td>
-               <td><input name='dob'/></td>
+               <td><input type='date' name='dob'/></td>
             </tr>
             <tr>
                <td>Address</td>

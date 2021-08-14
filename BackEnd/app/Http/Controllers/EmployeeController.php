@@ -24,33 +24,33 @@ class EmployeeController extends Controller
                 ->get();
                 
 
-                if(count($temp)>0){
-                        return 'Email Already exist!';
-                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
-                }
+                // if(count($temp)>0){
+                //         return 'Email Already exist!';
+                //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
+                // }
 
-                if($req->hasFile('image')){
-                        $file = $req->file('image');
-                       // echo "file name: ".."<br>";
+                // if($req->hasFile('image')){
+                //         $file = $req->file('image');
+                //        // echo "file name: ".."<br>";
 
-                if($file->getClientOriginalExtension()!='jpg') // || $file->getClientOriginalExtension()!='png')
-                {
-                        return 'Image should be JPG!';
-                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Image should be JPG');
-                       // return view('Employee.regEmployee')->with('print',false)->with('msg',$file->getClientOriginalExtension());
-                }
-                        $ProPicNmae=$file->getClientOriginalName();
-                        $file->move('upload',$file->getClientOriginalName());
+                // if($file->getClientOriginalExtension()!='jpg') // || $file->getClientOriginalExtension()!='png')
+                // {
+                //         return 'Image should be JPG!';
+                //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Image should be JPG');
+                //        // return view('Employee.regEmployee')->with('print',false)->with('msg',$file->getClientOriginalExtension());
+                // }
+                //         $ProPicNmae=$file->getClientOriginalName();
+                //         $file->move('upload',$file->getClientOriginalName());
 
-                }else{
-                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Have To Upload Valid Image!');
-                       // return 'Have To Upload Valid Image!';
-                }
+                // }else{
+                //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Have To Upload Valid Image!');
+                //        // return 'Have To Upload Valid Image!';
+                // }
 
-                if($req->Email == ''||$req->Address == ''||$req->Name == ''||$req->Amount == ''){
-                      //  return 'Failed!';
-                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Please Fill All Text box');
-                }
+                // if($req->Email == ''||$req->Address == ''||$req->Name == ''||$req->Amount == ''){
+                //       //  return 'Failed!';
+                //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Please Fill All Text box');
+                // }
 
 
                 return $ProPicNmae;
@@ -68,8 +68,8 @@ class EmployeeController extends Controller
                         'Name' => $req->Name,
                         'DOB' => $req->DOB,
                         'Password' => $string,
-                        //'ProPic' =>  $req->ProPic,
-                        'ProPic' =>  $ProPicNmae,
+                        'ProPic' =>  $req->ProPic,
+                        //'ProPic' =>  $ProPicNmae,
                         'BanStatus' =>  false,
                         'Rank' => $req->Rank]);
 
