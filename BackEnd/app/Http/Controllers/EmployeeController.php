@@ -17,16 +17,16 @@ class EmployeeController extends Controller
 
         public function createSucess(Request $req){
 
-               $ProPicNmae ='';
+                $ProPicNmae ='';
 
-                
                 $temp = DB::table('users')
                 ->where('Email', $req->Email )
                 ->get();
                 
 
                 if(count($temp)>0){
-                        return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
+                        return 'Email Already exist!';
+                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
                 }
 
                 if($req->hasFile('image')){
@@ -35,19 +35,25 @@ class EmployeeController extends Controller
 
                 if($file->getClientOriginalExtension()!='jpg') // || $file->getClientOriginalExtension()!='png')
                 {
-                        return view('Employee.regEmployee')->with('print',false)->with('msg','Image should be JPG');
+                        return 'Image should be JPG!';
+                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Image should be JPG');
                        // return view('Employee.regEmployee')->with('print',false)->with('msg',$file->getClientOriginalExtension());
                 }
                         $ProPicNmae=$file->getClientOriginalName();
                         $file->move('upload',$file->getClientOriginalName());
 
                 }else{
-                        return view('Employee.regEmployee')->with('print',false)->with('msg','Have To Upload Valid Image!');
+                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Have To Upload Valid Image!');
+                       // return 'Have To Upload Valid Image!';
                 }
 
                 if($req->Email == ''||$req->Address == ''||$req->Name == ''||$req->Amount == ''){
-                        return view('Employee.regEmployee')->with('print',false)->with('msg','Please Fill All Text box');
+                      //  return 'Failed!';
+                        //return view('Employee.regEmployee')->with('print',false)->with('msg','Please Fill All Text box');
                 }
+
+
+                return $ProPicNmae;
 
                 $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $pin = mt_rand(1000000, 9999999)
@@ -62,6 +68,7 @@ class EmployeeController extends Controller
                         'Name' => $req->Name,
                         'DOB' => $req->DOB,
                         'Password' => $string,
+                        //'ProPic' =>  $req->ProPic,
                         'ProPic' =>  $ProPicNmae,
                         'BanStatus' =>  false,
                         'Rank' => $req->Rank]);
@@ -77,10 +84,12 @@ class EmployeeController extends Controller
                                 'Amount' => $req->Amount,
                                 'Year'=>'2021']);
 
-                        return redirect('/emplpyee/print/'.$temp->ID)->with('print',true);
+                        return 'OK!';
+                       // return redirect('/emplpyee/print/'.$temp->ID)->with('print',true);
                 }
 
-                return view('Employee.regEmployee')->with('print',false)->with('msg','Reg failed!');
+                return 'OK!';
+                //return view('Employee.regEmployee')->with('print',false)->with('msg','Reg failed!');
         
         }
         public function createSucessPage($id){

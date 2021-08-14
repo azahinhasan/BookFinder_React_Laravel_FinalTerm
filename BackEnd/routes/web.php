@@ -47,7 +47,6 @@ Route::get('/', function () {
    
 
     //done
-
     Route::get('/user/economic/{year}', 'EconomicController@earningData');
 
 
@@ -65,11 +64,13 @@ Route::get('/', function () {
     Route::get('/emplpyee/salaryList', 'EmployeeV2Contorller@salaryList');
     Route::get('/employee/giveSalary/{id}', 'EmployeeV2Contorller@giveSalaryOption');
     Route::post('/employee/giveSalary/{id}', 'EmployeeV2Contorller@confirmSalary');
-
     Route::post('/emplpyee/list', 'EmployeeController@listSearch');
-    //Employee
+
+
     Route::get('/emplpyee/add', 'EmployeeController@create');
     Route::post('/emplpyee/add', 'EmployeeController@createSucess');
+    //Employee
+
 
     Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
     Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
