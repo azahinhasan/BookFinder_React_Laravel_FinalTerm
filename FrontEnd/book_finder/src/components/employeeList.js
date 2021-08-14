@@ -85,7 +85,7 @@ const EmployeeList=()=> {
                <tr>
                   <td>{d.ID}</td>
                   <td>{d.Name}</td>
-                  <td>{d.ProPic}</td>
+                  <td><img src={require("../../content/proPic/"+d.ProPic).default} width='100px' height='100px'/></td>
                   <td>{d.Rank}</td>
                   <td>{d.BanStatus}</td>
                   <td style={{color:'blue'}}>
