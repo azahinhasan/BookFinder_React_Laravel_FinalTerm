@@ -68,7 +68,7 @@ class CustomerController extends Controller
 
         //return view('Customer.pieChartSubscription')->with('Standerd',count($Standerd))->with('Premium',count($Premium))->with('NotBanned',count($NotBanned))->with('Banned',count($Banned));
 
-        return response()->json(['Standerd' => $Standerd,'Premium' => $Premium,'NotBanned' => $NotBanned ,'Banned' => $Banned ]);
+        return response()->json(['Standerd' => count($Standerd),'Premium' => count($Premium),'NotBanned' => count($NotBanned),'Banned' => count($Banned) ]);
     }
 
     public function shopList(){

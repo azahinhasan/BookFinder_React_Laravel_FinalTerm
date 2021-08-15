@@ -12,6 +12,7 @@ import UserInfo from './components/userInfo';
 import PrintEmployeeInfo from './components/printEmployeeInfo';
 import ShopList from './components/shopList';
 import ShopInfo from './components/shopInfo';
+import PieChart from './components/pieChart';
 
 
 const App=()=> {
@@ -30,6 +31,7 @@ const App=()=> {
           <Route path="/PrintEmployeeInfo/:id" component={PrintEmployeeInfo}/>
           <Route path="/ShopList" component={ShopList}/>
           <Route path="/ShopInfo/:shopID" component={ShopInfo}/>
+          <Route path="/PieChart" component={PieChart}/>
           <Redirect to="/EmployeeList"/>
       </Switch>
 
