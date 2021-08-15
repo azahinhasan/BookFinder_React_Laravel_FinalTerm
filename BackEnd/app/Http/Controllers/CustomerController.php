@@ -66,7 +66,9 @@ class CustomerController extends Controller
         ->where('BanStatus',  'true')
         ->get();  
 
-        return view('Customer.pieChartSubscription')->with('Standerd',count($Standerd))->with('Premium',count($Premium))->with('NotBanned',count($NotBanned))->with('Banned',count($Banned));
+        //return view('Customer.pieChartSubscription')->with('Standerd',count($Standerd))->with('Premium',count($Premium))->with('NotBanned',count($NotBanned))->with('Banned',count($Banned));
+
+        return response()->json(['Standerd' => $Standerd,'Premium' => $Premium,'NotBanned' => $NotBanned ,'Banned' => $Banned ]);
     }
 
     public function shopList(){

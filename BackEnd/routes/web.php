@@ -35,8 +35,7 @@ Route::get('/', function () {
     Route::post('/user/subscription', 'CustomerController@subscriptionUpdate');
 
     Route::get('/user/subscription/list/{value}', 'CustomerController@SubscriptionUsersList');
-    Route::get('/user/subscription/pieChart', 'CustomerController@pieChart');
-
+    
 
     //Economic
    
@@ -69,12 +68,13 @@ Route::get('/', function () {
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
     
     Route::get('/shop/list', 'CustomerController@shopList');
-
-
-
-
     Route::get('/shop/details/{id}', 'CustomerController@shopVerify');
     Route::post('/shop/details/{id}', 'CustomerController@shopVerifyConfirm');
+
+
+
+    Route::get('/user/subscription/pieChart', 'CustomerController@pieChart');
+
     
     Route::get('/emplpyee/add', 'EmployeeController@create');
 
