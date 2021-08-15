@@ -78,18 +78,19 @@ class CustomerController extends Controller
         return $shopList;
     }
 
-    public function shopVerify($id,$licence){
+    public function shopVerify($id){
         $msg ='' ;
         $shopInfo=DB::table('shop')
                         ->where('Shop_id',$id)
-                        ->get();
+                        ->first();
         $shopInfoLicence=DB::table('shop_licence')
-                        ->where('Shop_Licence',$licence)
+                        ->where('Shop_Licence',$shopInfo->Shop_Licence)
                         ->get();
 
         if(count($shopInfoLicence)<1){
             $msg='Shop Licence Is Not Valid!';
         }
+
         // $result = json_decode($shopInfo, true);
         // $result2 = json_decode($shopInfoLicence, true);
 
@@ -114,6 +115,6 @@ class CustomerController extends Controller
         }
 
 
-        return $this->shopVerify($id,$licence);
+        return 'OK';
     }
 }

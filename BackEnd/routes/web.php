@@ -72,8 +72,8 @@ Route::get('/', function () {
 
 
 
-    
-    Route::get('/shop/details/{id}/{licence}', 'CustomerController@shopVerify');
+
+    Route::get('/shop/details/{id}', 'CustomerController@shopVerify');
     Route::post('/shop/details/{id}/{licence}', 'CustomerController@shopVerifyConfirm');
     
     Route::get('/emplpyee/add', 'EmployeeController@create');
