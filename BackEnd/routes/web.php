@@ -29,9 +29,7 @@ Route::get('/', function () {
     Route::get('/logout', 'HomeZController@logOut');
     
     //Shop
-    Route::get('/shop/list', 'CustomerController@shopList');
-    Route::get('/shop/details/{id}/{licence}', 'CustomerController@shopVerify');
-    Route::post('/shop/details/{id}/{licence}', 'CustomerController@shopVerifyConfirm');
+
     //Subscription
     Route::get('/user/subscription', 'CustomerController@subscription');
     Route::post('/user/subscription', 'CustomerController@subscriptionUpdate');
@@ -68,10 +66,16 @@ Route::get('/', function () {
 
     Route::get('/reportList', 'ReportsController@reportList');
     Route::get('/reportList/{id}', 'ReportsController@userReports');
-
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
 
 
+
+
+
+    Route::get('/shop/list', 'CustomerController@shopList');
+    Route::get('/shop/details/{id}/{licence}', 'CustomerController@shopVerify');
+    Route::post('/shop/details/{id}/{licence}', 'CustomerController@shopVerifyConfirm');
+    
     Route::get('/emplpyee/add', 'EmployeeController@create');
 
  
@@ -80,15 +84,15 @@ Route::get('/', function () {
     //Employee
 
 
-    Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
-    Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
+    // Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
+    // Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
 
-    Route::get('/emplpyee/edit', 'EmployeeController@edit');
-    Route::post('/emplpyee/edit', 'EmployeeController@editPage');
+    // Route::get('/emplpyee/edit', 'EmployeeController@edit');
+    // Route::post('/emplpyee/edit', 'EmployeeController@editPage');
 
     
 
-    Route::get('/emplpyee/update/{id}', 'EmployeeController@editPage2');
+    // Route::get('/emplpyee/update/{id}', 'EmployeeController@editPage2');
    
 
 

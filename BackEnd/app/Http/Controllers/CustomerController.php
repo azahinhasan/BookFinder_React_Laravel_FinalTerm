@@ -73,8 +73,9 @@ class CustomerController extends Controller
        
         $shopList=DB::table('shop')
                         ->get();
-        $result = json_decode($shopList, true);
-        return view('Shop.shopList')->with('shopList',$result);
+    
+
+        return $shopList;
     }
 
     public function shopVerify($id,$licence){

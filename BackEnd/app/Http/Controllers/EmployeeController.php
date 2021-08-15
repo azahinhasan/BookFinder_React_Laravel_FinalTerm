@@ -24,7 +24,7 @@ class EmployeeController extends Controller
                 ->where('Email', $req->Email )
                 ->get();
                 
-                return 'OK';
+
                 // if(count($temp)>0){
                 //         return 'Email Already exist!';
                 //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
@@ -54,7 +54,7 @@ class EmployeeController extends Controller
                 // }
 
 
-                return $ProPicNmae;
+               // return $ProPicNmae;
 
                 $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 $pin = mt_rand(1000000, 9999999)
@@ -85,11 +85,13 @@ class EmployeeController extends Controller
                                 'Amount' => $req->Amount,
                                 'Year'=>'2021']);
 
-                        return 'OK';
+                       // return 'OK';
                        // return redirect('/emplpyee/print/'.$temp->ID)->with('print',true);
+                
+                       return $temp->ID;
                 }
 
-                return 'OK';
+                return $temp->ID;
                 //return view('Employee.regEmployee')->with('print',false)->with('msg','Reg failed!');
         
         }

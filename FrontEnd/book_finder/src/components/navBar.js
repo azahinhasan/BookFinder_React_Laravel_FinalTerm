@@ -15,6 +15,7 @@ const NavBar=()=> {
 
          <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
          <Link className={Classes.Link} to={{pathname: '/EchoStatics'}}>Pie Chart</Link>
+         <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
        </div>
     </div>
   );
