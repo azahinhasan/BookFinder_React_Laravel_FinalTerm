@@ -90,17 +90,29 @@ class CustomerController extends Controller
         if(count($shopInfoLicence)<1){
             $msg='Shop Licence Is Not Valid!';
         }
-        $result = json_decode($shopInfo, true);
-        $result2 = json_decode($shopInfoLicence, true);
+        // $result = json_decode($shopInfo, true);
+        // $result2 = json_decode($shopInfoLicence, true);
 
-        return view('Shop.shopDetails')->with('shop_info',$result)->with('shop_licence',$result2)->with('msg',$msg);
+        // return view('Shop.shopDetails')->with('shop_info',$result)->with('shop_licence',$result2)->with('msg',$msg);
+
+        return response()->json(['shopInfo' => $shopInfo,
+        'shopInfoLicence' => $shopInfoLicence,
+        'msg' => $msg]);
     }
 
-    public function shopVerifyConfirm($id,$licence){
+    public function shopVerifyConfirm($id,$status){
 
-        DB::table('shop')
-        ->where('Shop_id', $id)
-        ->update(['Verified_Status' => 'true']);
+        if($status=='true'){
+            DB::table('shop')
+            ->where('Shop_id', $id)
+            ->update(['Verified_Status' => 'false']);
+        }
+        else{
+            DB::table('shop')
+            ->where('Shop_id', $id)
+            ->update(['Verified_Status' => 'true']);
+        }
+
 
         return $this->shopVerify($id,$licence);
     }

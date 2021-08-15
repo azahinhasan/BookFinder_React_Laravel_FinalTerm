@@ -11,6 +11,8 @@ import ReportList from './components/reportList';
 import UserInfo from './components/userInfo';
 import PrintEmployeeInfo from './components/printEmployeeInfo';
 import ShopList from './components/shopList';
+import ShopInfo from './components/shopInfo';
+
 
 const App=()=> {
   return (
@@ -27,7 +29,7 @@ const App=()=> {
           <Route path="/UserInfo/:id" component={UserInfo}/>
           <Route path="/PrintEmployeeInfo/:id" component={PrintEmployeeInfo}/>
           <Route path="/ShopList" component={ShopList}/>
-
+          <Route path="/ShopInfo/:shopID" component={ShopInfo}/>
           <Redirect to="/EmployeeList"/>
       </Switch>
 

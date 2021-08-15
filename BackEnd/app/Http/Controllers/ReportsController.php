@@ -62,19 +62,4 @@ class ReportsController extends Controller
                 //return redirect('/reportList/'.$id)->with('msg',$msg);
         }
     
-    public function getUserReports(){
-        return [
-             ['id'=>1, 'GotRepotedID'=>1, 'RepoterID'=>'4', 'Repoter'=>'BadPerson'],
-             ['id'=>2, 'GotRepotedID'=>1, 'RepoterID'=>'7', 'Repoter'=>'BadPerson'],
-             ['id'=>3, 'GotRepotedID'=>2, 'RepoterID'=>'5', 'Repoter'=>'BadPerson'],
-        ];
-    }
-
-    public function getUserInfo(){
-        return [
-             ['id'=>1, 'Name'=>'zz', 'Email'=>'a@a.com','Rank'=>'Admin'],
-             ['id'=>2, 'Name'=>'aa', 'Email'=>'a@a.com','Rank'=>'Admin'],
-             ['id'=>3, 'Name'=>'gg', 'Email'=>'a@a.com','Rank'=>'Admin']
-        ];
-    }
 }

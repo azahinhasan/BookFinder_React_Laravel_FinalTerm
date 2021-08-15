@@ -67,12 +67,12 @@ Route::get('/', function () {
     Route::get('/reportList', 'ReportsController@reportList');
     Route::get('/reportList/{id}', 'ReportsController@userReports');
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
-
-
-
-
-
+    
     Route::get('/shop/list', 'CustomerController@shopList');
+
+
+
+    
     Route::get('/shop/details/{id}/{licence}', 'CustomerController@shopVerify');
     Route::post('/shop/details/{id}/{licence}', 'CustomerController@shopVerifyConfirm');
     
