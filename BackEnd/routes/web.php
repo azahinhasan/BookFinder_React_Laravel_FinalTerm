@@ -18,10 +18,7 @@ Route::get('/', function () {
 });
 
 // Route::group(['middleware'=>['verifyUser']], function(){
-    Route::get('/reportList', 'ReportsController@reportList');
-    //ReportPart
-    Route::get('/reportList/{id}', 'ReportsController@userReports');
-    Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
+
 
     //Employee
 
@@ -65,10 +62,17 @@ Route::get('/', function () {
     Route::get('/employee/giveSalary/{id}', 'EmployeeV2Contorller@giveSalaryOption');
     Route::post('/employee/giveSalary/{id}', 'EmployeeV2Contorller@confirmSalary');
     Route::post('/emplpyee/list', 'EmployeeController@listSearch');
-
-
-    Route::get('/emplpyee/add', 'EmployeeController@create');
     Route::post('/emplpyee/add', 'EmployeeController@createSucess');
+
+    Route::get('/reportList', 'ReportsController@reportList');
+
+
+    
+    Route::get('/emplpyee/add', 'EmployeeController@create');
+
+    Route::get('/reportList/{id}', 'ReportsController@userReports');
+    Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
+
     //Employee
 
 

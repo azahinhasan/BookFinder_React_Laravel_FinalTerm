@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
 class ReportsController extends Controller
 {
 
@@ -11,9 +12,10 @@ class ReportsController extends Controller
         $data = DB::table('reports')
         ->get(); 
 
-    $result = json_decode($data, true);
 
-    return view('Customer.checkReportList')->with('reportlist', $result)->with('msg','');
+
+    return  $data;
+    //return view('Customer.checkReportList')->with('reportlist', $result)->with('msg','');
     }
     public function userReports($id){
         $userInfo = DB::table('users')
@@ -24,10 +26,13 @@ class ReportsController extends Controller
         ->where('gotReported', $id )
         ->get();
 
-        $usersInfo2 = json_decode($userInfo, true);
-        $reports = json_decode($hisALLReports, true);
+        // $usersInfo2 = json_decode($userInfo, true);
+        // $reports = json_decode($hisALLReports, true);
 
-        return view('Customer.checkGotReportedUserInfo')->with('reports', $reports)->with('usersInfo', $usersInfo2)->with('msg', '');
+        return response()->json(['userReports' => $hisALLReports,
+                                'userInfo' => $userInfo ]);
+
+        //return view('Customer.checkGotReportedUserInfo')->with('reports', $reports)->with('usersInfo', $usersInfo2)->with('msg', '');
    }
 
    public function userInfo(){
@@ -52,7 +57,9 @@ class ReportsController extends Controller
                         $msg='Account Enabled!';
                 }
 
-                return redirect('/reportList/'.$id)->with('msg',$msg);
+                return $this->userReports($id);
+                
+                //return redirect('/reportList/'.$id)->with('msg',$msg);
         }
     
     public function getUserReports(){
