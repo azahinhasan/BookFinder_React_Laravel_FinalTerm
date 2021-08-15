@@ -1,4 +1,5 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,} from 'react';
+import {Route,useHistory,withRouter,Redirect} from 'react-router-dom';
 
 import Classes from './components.css';
 
@@ -8,8 +9,10 @@ const EmployeeAdd=()=> {
 
    const [errMsg,setErrMsg]=useState('');
 
-   const submitHandler=(event)=>{
+   const history= useHistory();
 
+   const submitHandler=(event)=>{
+      history.push('/PrintEmployeeInfo/1');
       //console.log(event.target.propic.files[0]);
 
       if(event.target.elements.email.value==''||event.target.elements.address.value==''
@@ -30,9 +33,16 @@ const EmployeeAdd=()=> {
             Rank:event.target.elements.rank.value,
 
          })
-            .then(r=>[
-               console.log(r.data)
-         ])
+         .then(r=>{
+
+            console.log(r.data)
+
+            if(r.data=="OK"){
+               history.push('/PrintEmployeeInfo/1');
+            }
+
+  
+         })
       }
 
          event.preventDefault();

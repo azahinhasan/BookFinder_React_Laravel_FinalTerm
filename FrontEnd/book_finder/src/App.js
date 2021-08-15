@@ -9,6 +9,7 @@ import EchoStat from './components/earningStatics';
 import EmployeeAdd from './components/empoyeeAdd';
 import ReportList from './components/reportList';
 import UserInfo from './components/userInfo';
+import PrintEmployeeInfo from './components/printEmployeeInfo';
 
 const App=()=> {
   return (
@@ -23,6 +24,7 @@ const App=()=> {
           <Route path="/EmployeeAdd" component={EmployeeAdd}/>
           <Route path="/ReportList" component={ReportList}/>
           <Route path="/UserInfo/:id" component={UserInfo}/>
+          <Route path="/PrintEmployeeInfo/:id" component={PrintEmployeeInfo}/>
           <Redirect to="/EmployeeList"/>
       </Switch>
 

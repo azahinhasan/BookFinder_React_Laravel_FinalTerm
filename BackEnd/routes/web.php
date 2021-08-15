@@ -57,22 +57,26 @@ Route::get('/', function () {
 
     //done
     Route::get('/emplpyee/list', 'EmployeeController@list');
+
     Route::get('/chnageEmployeeAccess/{value}/{id}', 'EmployeeController@chnageEmployeeAccess');
     Route::get('/emplpyee/salaryList', 'EmployeeV2Contorller@salaryList');
     Route::get('/employee/giveSalary/{id}', 'EmployeeV2Contorller@giveSalaryOption');
     Route::post('/employee/giveSalary/{id}', 'EmployeeV2Contorller@confirmSalary');
     Route::post('/emplpyee/list', 'EmployeeController@listSearch');
     Route::post('/emplpyee/add', 'EmployeeController@createSucess');
+    Route::get('/userInfoLoad/{id}', 'ReportsController@userReports');
 
     Route::get('/reportList', 'ReportsController@reportList');
-
-
-    
-    Route::get('/emplpyee/add', 'EmployeeController@create');
-
     Route::get('/reportList/{id}', 'ReportsController@userReports');
+
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
 
+
+    Route::get('/emplpyee/add', 'EmployeeController@create');
+
+ 
+    // Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
+    // Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
     //Employee
 
 
