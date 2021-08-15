@@ -31,18 +31,31 @@ const ShopInfo=()=> {
          })
    }
 
+   const chngeVerifyStatus=()=>{
+      axios.post('/shop/details/'+shopID)
+      .then(r=>{
+         console.log(r.data);
+         loadData();
+      })
+      .catch(e=>{
+         console.log(e);
+      })
+   }
+
 
   return (
     <div className={Classes.App}>
-      <h3>Shop Info</h3>
+      <h2>Shop Info</h2>
 
 
       <table>
          <tr>
             <th>#ID</th>
             <th>Shop Name</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th>Address</th>
+            <th>Licence</th>
+            <th>Phone</th>
+            <th>Verified Status</th>
          </tr>
 
          <tr key={d.Shop_id}>
@@ -52,11 +65,46 @@ const ShopInfo=()=> {
             <td style={{color:'blue',fontWeight:'bold'}}>{d.Shop_Licence}</td>
             <td>{d.Phone_No}</td>
             <td>{d.Verified_Status}</td>
-            <td><div onClick={()=>history.push('/ShopInfo/'+d.Shop_id)}>Details</div></td>
          </tr>
-
+         
       </table>
-   
+      <br/>
+      
+      
+      
+
+      {validData!=null?
+         <div>
+               {d.Verified_Status=='true'? <button className={Classes.buttonRed} onClick={()=>chngeVerifyStatus()}>Not Valid</button>
+                  : <button className={Classes.buttonGreen} onClick={()=>chngeVerifyStatus()}>VALID</button>}
+         </div>          
+      :null}
+      <hr/>
+      <br/>
+         <h2>Data From Govt.Licence</h2>
+      <br/>
+     
+
+      {validData==null?<h3 style={{color:'red'}}>{msg}</h3>
+      :
+         <table>
+            <tr>
+               <th>Shop_Name</th>
+               <th>Shop_Licence</th>
+               <th>Shop_Address</th>
+               <th>Shopper_Name</th>
+               <th>Phone</th>
+            </tr>
+            <tr>
+               <td>{validData.Shop_Name}</td>
+               <td>{validData.Shop_Licence}</td>
+               <td>{validData.Shop_Address}</td>
+               <td>{validData.Shopper_Name}</td>
+               <td>{validData.Phone}</td>
+            </tr>
+         </table>}
+
+
     </div>
   );
 }
