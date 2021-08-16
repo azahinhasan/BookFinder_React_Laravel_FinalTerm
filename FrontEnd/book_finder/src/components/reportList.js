@@ -26,10 +26,6 @@ const ReportList=()=> {
          })
    }
 
-   const ttt=()=>{
-      const link = ''
-   }
-
 
   return (
     <div className={Classes.App}>

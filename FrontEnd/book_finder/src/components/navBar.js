@@ -5,6 +5,15 @@ import Classes from './components.css';
 
 
 const NavBar=()=> {
+
+  const LogOut=()=>{
+    localStorage.removeItem('Email');
+    localStorage.removeItem('Rank');
+    localStorage.removeItem('ID');
+    localStorage.removeItem('AccountvaVlidity');
+
+    window.location.reload();
+  }
   return (
     <div className={Classes.NavBar}>
        <div>
@@ -16,7 +25,12 @@ const NavBar=()=> {
          <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
          <Link className={Classes.Link} to={{pathname: '/PieChart'}}>Pie Chart</Link>
          <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
+
+
+         <Link className={Classes.Link} style={{color:'red'}} onClick={()=>LogOut()}>LogOut</Link>
        </div>
+
+      
     </div>
   );
 }

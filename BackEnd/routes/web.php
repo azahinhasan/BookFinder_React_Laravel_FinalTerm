@@ -26,7 +26,7 @@ Route::get('/', function () {
     Route::post('/emplpyee/updatePassword', 'EmployeeController@updatePass');
 
     //Home
-    Route::get('/logout', 'HomeZController@logOut');
+    //Route::get('/logout', 'HomeZController@logOut');
     
     //Shop
 
@@ -39,6 +39,11 @@ Route::get('/', function () {
 
     //done
     Route::get('/user/economic/{year}', 'EconomicController@earningData');
+    Route::get('/shop/list', 'CustomerController@shopList');
+    Route::get('/shop/details/{id}', 'CustomerController@shopVerify');
+    Route::post('/shop/details/{id}', 'CustomerController@shopVerifyConfirm');
+    Route::get('/user/subscription/pieChart', 'CustomerController@pieChart');
+    Route::get('/user/subscription/list/{value}', 'CustomerController@SubscriptionUsersList');
 
 
 
@@ -64,20 +69,16 @@ Route::get('/', function () {
     Route::get('/reportList/{id}', 'ReportsController@userReports');
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
     
-    Route::get('/shop/list', 'CustomerController@shopList');
-    Route::get('/shop/details/{id}', 'CustomerController@shopVerify');
-    Route::post('/shop/details/{id}', 'CustomerController@shopVerifyConfirm');
-    Route::get('/user/subscription/pieChart', 'CustomerController@pieChart');
 
 
-    Route::get('/user/subscription', 'CustomerController@subscription');
-    Route::post('/user/subscription', 'CustomerController@subscriptionUpdate');
-    
-    Route::get('/user/subscription/list/{value}', 'CustomerController@SubscriptionUsersList');
+
+ 
 
 
-    Route::get('/emplpyee/add', 'EmployeeController@create');
+    //Route::get('/emplpyee/add', 'EmployeeController@create');
 
+    // Route::get('/user/subscription', 'CustomerController@subscription');
+    // Route::post('/user/subscription', 'CustomerController@subscriptionUpdate');
  
     // Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
     // Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
@@ -100,12 +101,17 @@ Route::get('/', function () {
 
 //HOme
 
-Route::post('/bookSearch', 'HomeZController@bookSearcWithResults');
-Route::get('/bookSearch', 'HomeZController@bookSearch');
 
-Route::get('/login', 'HomeZController@login');
-Route::post('/login', 'HomeZController@loginPost');
+
 
 
 Route::get('/contactus', 'HomeZController@contactus');
 Route::post('/contactus', 'HomeZController@contactusPost');
+
+
+//Done
+Route::post('/login', 'HomeZController@loginPost');
+
+
+Route::post('/bookSearch', 'HomeZController@bookSearcWithResults');
+// Route::get('/bookSearch', 'HomeZController@bookSearch');

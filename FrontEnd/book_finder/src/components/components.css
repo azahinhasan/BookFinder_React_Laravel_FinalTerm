@@ -50,7 +50,7 @@ button,input[type="submit"]{
 input,select{
    width: 200px;
    margin:5px;
-   border:2px #5d5fc7 solid;
+   border:3px #5d5fc7 solid;
    color: #5d5fc7 ;
    font-size: 18px;
    border-radius: 4px;
@@ -82,3 +82,24 @@ table{
  }
 
  
+
+.box{
+   /* content: ""; */
+   clear: both;
+   display: table;
+}
+.DataBox{
+   float: left;
+   /* width: 24.4%; */
+   width: 32%;
+   padding: 5px;
+/* 
+   border: 2px solid black; */
+   border-radius: 5px;
+   margin: 5px;
+   text-align: center;
+}
+/* .DataBox:hover{
+   border: 2px solid rgb(25, 37, 146);
+   box-shadow: 2px 2px rgb(110, 88, 88);
+} */

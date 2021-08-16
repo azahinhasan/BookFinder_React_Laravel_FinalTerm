@@ -6,20 +6,15 @@ use Illuminate\Http\Request;
 
 class HomeZController extends Controller
 {
-    public function bookSearch(Request $data){
 
-        return view('Home.bookSearchPage')->with('bookList', '');
-
-    }
     public function bookSearcWithResults(Request $data){
 
         $temp = DB::table('books')
        // ->where('Name', $data->search)
        ->where('Name', 'like', '%'.$data->search.'%')
         ->get();
-        $result = json_decode($temp, true);
-
-        return view('Home.bookSearchPage')->with('bookList', $result);
+        
+        return $temp;
 
     }
 
@@ -30,38 +25,36 @@ class HomeZController extends Controller
     }
 
     public function loginPost(Request $data){
+
+       // return $data->Password;
         $temp = DB::table('users')
-        // ->where('Email',$data->Email)
-        // ->where('Password',$data->Password)
-        ->where('Email',$data->Email)
-        ->where('Password',$data->Password)
-        ->get();
+            ->where('Email',$data->Email)
+            ->where('Password',$data->Password)
+            ->first();
 
-        if(count($temp)<1){
+        if($temp==null){
 
-            return view('Home.loginFrom')->with('msg', 'Invalid Data!');
+            //return view('Home.loginFrom')->with('msg', 'Invalid Data!');
+            return response()->json(['Email' => '','ID' => '','Rank'=>'','msg' => 'Invalid Data!']);
 
         }
 
         $temp2 = DB::table('users')
-        ->where('Email',$data->Email)
-        ->where('BanStatus','true')
-        // ->orwhere('BanStatus','')
-        ->get();
+            ->where('Email',$data->Email)
+            ->where('BanStatus','true')
+            // ->orwhere('BanStatus','')
+            ->get();
 
         if(count($temp2)>0){
 
-            return view('Home.loginFrom')->with('msg', 'Account Is Disabled!');
+            //return view('Home.loginFrom')->with('msg', 'Account Is Disabled!');
+            return response()->json(['Email' => '','ID' => '','Rank'=>'','msg' => 'Account Is Disabled!']);
 
         }
 
 
 
-        $data->session()->put('Email', $data->Email);
-        $data->session()->put('Password', $data->Password);
-        $data->session()->put('Rank', $temp[0]->Rank);
-
-        return view('Employee.home')->with('bookList', '');
+        return response()->json(['Email'=>$temp->Email,'ID'=>$temp->ID,'Rank'=>$temp->Rank,'msg' => 'OK']);
 
     }
 
