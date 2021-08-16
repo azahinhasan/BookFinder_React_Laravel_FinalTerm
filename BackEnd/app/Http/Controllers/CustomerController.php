@@ -43,10 +43,11 @@ class CustomerController extends Controller
             ->orwhere('premium',  null)
             ->get(); 
         }
-        $result = json_decode($user, true);
+        //$result = json_decode($user, true);
 
-        return view('Customer.Subscription.SubscriptionUsersList')->with('usersList',$result);
+        //return view('Customer.Subscription.SubscriptionUsersList')->with('usersList',$result);
 
+        return $user;
     }
 
     public function pieChart(){

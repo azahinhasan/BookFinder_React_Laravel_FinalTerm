@@ -12,7 +12,7 @@ const NavBar=()=> {
          <Link className={Classes.Link} to={{pathname: '/EmployeeSalaryList'}}>Employee Salary</Link>
          <Link className={Classes.Link} to={{pathname: '/EmployeeAdd'}}>Add Employee</Link>
          <Link className={Classes.Link} to={{pathname: '/EchoStatics'}}>Economic</Link>
-
+         <Link className={Classes.Link} to={{pathname: '/SubscriptionUserList'}}>Subscription UserList</Link>
          <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
          <Link className={Classes.Link} to={{pathname: '/PieChart'}}>Pie Chart</Link>
          <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
