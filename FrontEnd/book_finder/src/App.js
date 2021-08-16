@@ -16,8 +16,9 @@ import ShopList from './components/shopList';
 import ShopInfo from './components/shopInfo';
 import PieChart from './components/pieChart';
 import SubscriptionUserList from './components/subscriptionUserList';
+import ContactUsList from './components/contactUsList';
 
-
+import ContactUs from './components/contactUs';
 import BookList from './components/bookList';
 import Login from './components/loginPage';
 
@@ -33,6 +34,7 @@ const App=()=> {
             <Switch>
                 <Route path="/Login" component={Login}/>
                 <Route path="/BookList" component={BookList}/>
+                <Route path="/ContactUs" component={ContactUs}/>
                 <Redirect to="/Login"/>
             </Switch>
           </div>
@@ -52,6 +54,7 @@ const App=()=> {
               <Route path="/PieChart" component={PieChart}/>
               <Route path="/SubscriptionUserList" component={SubscriptionUserList}/>
               <Route path="/BookList" component={BookList}/>
+              <Route path="/ContactUsList" component={ContactUsList}/>
               <Redirect to="/EmployeeList"/>
             </Switch>
           </div>

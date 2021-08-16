@@ -25,6 +25,8 @@ const NavBar=()=> {
          <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
          <Link className={Classes.Link} to={{pathname: '/PieChart'}}>Pie Chart</Link>
          <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
+         <Link className={Classes.Link} to={{pathname: '/BookList'}}>Books List</Link>
+         <Link className={Classes.Link} to={{pathname: '/ContactUsList'}}>ContactUs List</Link>
 
 
          <Link className={Classes.Link} style={{color:'red'}} onClick={()=>LogOut()}>LogOut</Link>

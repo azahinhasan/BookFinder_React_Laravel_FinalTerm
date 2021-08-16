@@ -69,8 +69,11 @@ class HomeZController extends Controller
 
     //contactusPost
 
-    public function contactus(Request $req){
-        return view('Home.contactUs')->with('msg','');
+    public function contactus(){
+        $data = DB::table('contact_us')
+            ->get();
+
+        return $data;
     }
 
     public function contactusPost(Request $req){
@@ -80,7 +83,8 @@ class HomeZController extends Controller
             'Email' => $req->Email,
             'Msg'=>$req->Msg]);
 
-            return view('Home.contactUs')->with('msg','Your Massage Send!');
+            return 'OK';
+
     }
 
     

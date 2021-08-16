@@ -47,14 +47,15 @@ button,input[type="submit"]{
 }
 
 
-input,select{
-   width: 200px;
+input,select,textarea{
+   width: 220px;
    margin:5px;
    border:3px #5d5fc7 solid;
    color: #5d5fc7 ;
    font-size: 18px;
    border-radius: 4px;
    padding: 2px;
+   resize: vertical;
 }
 
 table{
