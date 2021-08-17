@@ -19,6 +19,8 @@ import SubscriptionUserList from './components/subscriptionUserList';
 import ContactUsList from './components/contactUsList';
 import AccessDenied from './components/accessDenied';
 import ChattingPage from './components/chattingPage';
+import LoginHistory from './components/loginHistory';
+
 
 import ContactUs from './components/contactUs';
 import BookList from './components/bookList';
@@ -84,6 +86,7 @@ const App=()=> {
               <Route path="/BookList" component={BookList}/>
               <Route path="/ContactUsList" component={ContactUsList}/>
               <Route path="/ChattingPage" component={ChattingPage}/>
+              <Route path="/LoginHistory" component={LoginHistory}/>
               <Redirect to="/BookList"/>
             </Switch>
           </div>
@@ -105,6 +108,7 @@ const App=()=> {
               <Route path="/ContactUsList" component={ContactUsList}/>
               <Route path="/AccessDenied" component={AccessDenied}/>
               <Route path="/ChattingPage" component={ChattingPage}/>
+              <Route path="/LoginHistory" component={LoginHistory}/>
               <Redirect to="/BookList"/>
             </Switch>
           </div>

@@ -16,21 +16,23 @@ const NavBar=()=> {
   }
   return (
     <div className={Classes.NavBar}>
-       <div>
-         <Link className={Classes.Link} to={{pathname: '/EmployeeList'}}>Employee List</Link>
-         <Link className={Classes.Link} to={{pathname: '/EmployeeSalaryList'}}>Employee Salary</Link>
-         <Link className={Classes.Link} to={{pathname: '/EmployeeAdd'}}>Add Employee</Link>
-         <Link className={Classes.Link} to={{pathname: '/EchoStatics'}}>Economic</Link>
-         <Link className={Classes.Link} to={{pathname: '/SubscriptionUserList'}}>Subscription UserList</Link>
-         <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
-         <Link className={Classes.Link} to={{pathname: '/PieChart'}}>Pie Chart</Link>
-         <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
-         <Link className={Classes.Link} to={{pathname: '/BookList'}}>Books List</Link>
-         <Link className={Classes.Link} to={{pathname: '/ContactUsList'}}>ContactUs List</Link>
-         <Link className={Classes.Link} to={{pathname: '/ChattingPage'}}>Chatting</Link>
+      <div>
+        <Link className={Classes.Link} to={{pathname: '/EmployeeList'}}>Employee List</Link>
+        <Link className={Classes.Link} to={{pathname: '/EmployeeSalaryList'}}>Employee Salary</Link>
+        <Link className={Classes.Link} to={{pathname: '/EmployeeAdd'}}>Add Employee</Link>
+        <Link className={Classes.Link} to={{pathname: '/EchoStatics'}}>Economic</Link>
+        <Link className={Classes.Link} to={{pathname: '/SubscriptionUserList'}}>Subscription UserList</Link>
+        <Link className={Classes.Link} to={{pathname: '/ReportList'}}>Reports List</Link>
+        <Link className={Classes.Link} to={{pathname: '/PieChart'}}>Pie Chart</Link>
+        <Link className={Classes.Link} to={{pathname: '/ShopList'}}>Shop List</Link>
+        <Link className={Classes.Link} to={{pathname: '/BookList'}}>Books List</Link>
+        <Link className={Classes.Link} to={{pathname: '/ContactUsList'}}>ContactUs List</Link>
+        <Link className={Classes.Link} to={{pathname: '/ChattingPage'}}>Chatting</Link>
+        <Link className={Classes.Link} to={{pathname: '/LoginHistory'}}>Login History</Link>
 
-         <Link className={Classes.Link} style={{color:'red'}} onClick={()=>LogOut()}>LogOut</Link>
-       </div>
+
+        <Link className={Classes.Link} style={{color:'red'}} onClick={()=>LogOut()}>LogOut</Link>
+      </div>
 
       
     </div>

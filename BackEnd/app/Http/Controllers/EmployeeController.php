@@ -107,21 +107,21 @@ class EmployeeController extends Controller
 
         
         }
-        public function createSucessPrint($id){
+        // public function createSucessPrint($id){
 
-                $temp = DB::table('users')
-                ->where('ID',$id)
-                ->get();
-                $result = json_decode($temp, true);
+        //         $temp = DB::table('users')
+        //         ->where('ID',$id)
+        //         ->get();
+        //         $result = json_decode($temp, true);
 
-                $pdf = PDF :: loadView('Employee.printCreatedUser',['usersInfo'=> $result]);
-                return $pdf->download('disney.pdf');
+        //         $pdf = PDF :: loadView('Employee.printCreatedUser',['usersInfo'=> $result]);
+        //         return $pdf->download('disney.pdf');
 
 
-                return view('Employee.printCreatedUser')->with('usersInfo', $result)->with('msg','');
+        //         return view('Employee.printCreatedUser')->with('usersInfo', $result)->with('msg','');
         
         
-        }
+        // }
 
         public function editPage2($id){
 

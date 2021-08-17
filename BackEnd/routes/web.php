@@ -74,7 +74,7 @@ Route::get('/', function () {
 
     Route::get('/login_history', 'HomeZController@getLoginHistory');
     Route::post('/login_history', 'HomeZController@setLoginHistory');
-
+    Route::delete('/login_history/{id}', 'HomeZController@deleteLoginHistory');
 
     //Route::get('/emplpyee/add', 'EmployeeController@create');
 

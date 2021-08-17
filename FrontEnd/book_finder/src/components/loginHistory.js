@@ -16,10 +16,21 @@ const LoginHistory=()=> {
 
 
    const loadData=()=>{
-      axios.get('/reportList')
+      axios.get('/login_history')
+         .then(r=>{
+          //  console.log(r.data);
+            setData(r.data);
+         })
+         .catch(e=>{
+            console.log(e);
+         })
+   }
+
+   const removeData=(id)=>{
+      axios.delete('/login_history/'+id)
          .then(r=>{
             console.log(r.data);
-            setData(r.data);
+            loadData();
          })
          .catch(e=>{
             console.log(e);
@@ -34,9 +45,9 @@ const LoginHistory=()=> {
 
       <table>
          <tr>
-            <th>Reporter</th>
-            <th>Got Reported</th>
-            <th>Text</th>
+            <th>IP</th>
+            <th>Location</th>
+            <th>Time</th>
             <th>Action</th>
          </tr>
          {data.map(d=>{
@@ -45,8 +56,8 @@ const LoginHistory=()=> {
                <tr>
                   <td>{d.IP}</td>
                   <td>{d.Location}</td>
-                  <td>{d.text}</td>
-                  <td><div onClick={()=>history.push('/UserInfo/'+d.gotReported)}>Details</div></td>
+                  <td>{d.Time}</td>
+                  <td><button onClick={()=>{removeData(d.ID)}}>It's Me!</button></td>
                </tr>
             )
          

@@ -115,6 +115,7 @@ class HomeZController extends Controller
 
     public function setLoginHistory(Request $req){
 
+
         $data = DB::table('loginhistory')
             ->where('UserID',$req->UserID)
             ->where('IP' , $req->IP)
@@ -124,11 +125,18 @@ class HomeZController extends Controller
             DB::table('loginhistory')->insert(
                 ['IP' => $req->IP,
                 'UserID' => $req->UserID,
-                'Location'=>$req->Location]);
+                'Location'=>$req->Location,
+                'Time'=>date('Y-m-d H:i:s')]);
         }
-
-
         return 'OK';
+    }
+
+    public function deleteLoginHistory($id){
+        DB::table('loginhistory')
+                    ->where('ID',$id)
+                    ->delete();
+
+        return 'ok';
     }
 
 
