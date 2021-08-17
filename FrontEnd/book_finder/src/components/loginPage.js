@@ -31,7 +31,6 @@ const Login=()=> {
                setMsg('');
                localStorage.setItem('AccountvaVlidity',true);
                trackLoginHistory();
-               window.location.reload();
             }else{
                localStorage.setItem('AccountvaVlidity',false);
                setMsg(r.data.msg);
@@ -55,6 +54,7 @@ const Login=()=> {
             })
                .then(r=>{
                   console.log(r.data);
+                  window.location.reload();
                })
          })
    }
