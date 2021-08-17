@@ -89,9 +89,6 @@ class EmployeeV2Contorller extends Controller
     }
     public function setMsg(Request $data){
 
-
-      
-
         $temp=DB::table('users')
             ->where('ID', $data->UserID)
             ->first();

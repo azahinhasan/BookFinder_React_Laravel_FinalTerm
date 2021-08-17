@@ -68,11 +68,12 @@ Route::get('/', function () {
     Route::get('/reportList', 'ReportsController@reportList');
     Route::get('/reportList/{id}', 'ReportsController@userReports');
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
-    
-
     Route::get('/chatting', 'EmployeeV2Contorller@getMsg');
     Route::post('/chatting', 'EmployeeV2Contorller@setMsg');
- 
+
+
+    Route::get('/login_history', 'HomeZController@getLoginHistory');
+    Route::post('/login_history', 'HomeZController@setLoginHistory');
 
 
     //Route::get('/emplpyee/add', 'EmployeeController@create');

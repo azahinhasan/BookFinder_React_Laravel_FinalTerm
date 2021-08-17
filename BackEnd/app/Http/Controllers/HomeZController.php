@@ -105,6 +105,31 @@ class HomeZController extends Controller
 
     }
 
-    
+
+    public function getLoginHistory(){
+        $data =  DB::table('loginhistory')
+                    ->get();
+
+        return $data;
+    }
+
+    public function setLoginHistory(Request $req){
+
+        $data = DB::table('loginhistory')
+            ->where('UserID',$req->UserID)
+            ->where('IP' , $req->IP)
+            ->get();
+
+        if(count($data)<1){
+            DB::table('loginhistory')->insert(
+                ['IP' => $req->IP,
+                'UserID' => $req->UserID,
+                'Location'=>$req->Location]);
+        }
+
+
+        return 'OK';
+    }
+
 
 }

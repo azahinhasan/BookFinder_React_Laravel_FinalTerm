@@ -30,7 +30,7 @@ const Login=()=> {
             if(r.data.msg=='OK'){
                setMsg('');
                localStorage.setItem('AccountvaVlidity',true);
-               
+               trackLoginHistory();
                window.location.reload();
             }else{
                localStorage.setItem('AccountvaVlidity',false);
@@ -43,6 +43,21 @@ const Login=()=> {
          })
    }
 
+   const trackLoginHistory=()=>{
+      axios.get('https://extreme-ip-lookup.com/json/')
+         .then(r=>{
+            console.log(r.data);
+
+            axios.post('/login_history',{
+               IP:r.data.query,
+               UserID:localStorage.getItem('ID'),
+               Location:r.data.city+','+r.data.country
+            })
+               .then(r=>{
+                  console.log(r.data);
+               })
+         })
+   }
 
   return (
     <div className={Classes.App}>
