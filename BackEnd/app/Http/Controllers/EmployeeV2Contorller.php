@@ -82,4 +82,29 @@ class EmployeeV2Contorller extends Controller
         //return  $this->confirmSalaryPageData($id,'Data Updated!');
     }
 
+
+    public function getMsg(){
+        return  DB::table('chattingmsg')
+                ->get();
+    }
+    public function setMsg(Request $data){
+
+
+      
+
+        $temp=DB::table('users')
+            ->where('ID', $data->UserID)
+            ->first();
+
+            //return $data->Msg;
+
+        DB::table('chattingmsg')->insert(
+            ['UserID' => $data->UserID,
+            'Name' => $temp->Name,
+            'Msg' => $data->Msg,
+            'Rank' =>  $temp->Rank]);
+
+        return 'OK';
+    }
+
 }

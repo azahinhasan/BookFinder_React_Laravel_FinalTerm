@@ -70,8 +70,8 @@ Route::get('/', function () {
     Route::get('/banAccount/{value}/{id}', 'ReportsController@banAccount');
     
 
-
-
+    Route::get('/chatting', 'EmployeeV2Contorller@getMsg');
+    Route::post('/chatting', 'EmployeeV2Contorller@setMsg');
  
 
 
@@ -105,13 +105,12 @@ Route::get('/', function () {
 
 
 
-Route::get('/contactus', 'HomeZController@contactus');
-Route::post('/contactus', 'HomeZController@contactusPost');
 
 
 //Done
+Route::post('/verify', 'HomeZController@verifyUser');
 Route::post('/login', 'HomeZController@loginPost');
-
-
 Route::post('/bookSearch', 'HomeZController@bookSearcWithResults');
+Route::get('/contactus', 'HomeZController@contactus');
+Route::post('/contactus', 'HomeZController@contactusPost');
 // Route::get('/bookSearch', 'HomeZController@bookSearch');

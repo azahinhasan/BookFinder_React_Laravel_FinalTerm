@@ -87,6 +87,24 @@ class HomeZController extends Controller
 
     }
 
+    public function verifyUser(Request $req){
+
+        //return  $req->Email;
+        $data = DB::table('users')
+            ->where('ID',$req->ID)
+            ->where('Email' , $req->Email)
+            ->where('Rank' , $req->Rank)
+            ->first();
+
+        if($data!=null)
+            {
+                return 'OK';
+            }
+        
+        return 'notOK';
+
+    }
+
     
 
 }

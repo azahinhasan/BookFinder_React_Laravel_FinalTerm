@@ -19,16 +19,18 @@ const Login=()=> {
    const login=()=>{
       axios.post('/login',{Email,Password})
          .then(r=>{
-            console.log(r.data);
+            //console.log(r.data);
 
             localStorage.setItem('Email',r.data.Email);
             localStorage.setItem('ID',r.data.ID);
             localStorage.setItem('Rank',r.data.Rank);
 
+
+
             if(r.data.msg=='OK'){
                setMsg('');
                localStorage.setItem('AccountvaVlidity',true);
-
+               
                window.location.reload();
             }else{
                localStorage.setItem('AccountvaVlidity',false);

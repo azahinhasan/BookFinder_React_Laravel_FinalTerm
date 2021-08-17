@@ -10,9 +10,9 @@ const BookList=()=> {
    const [Password,setPass]=useState('');
    const [msg,setMsg]=useState('');
    const history = useHistory();
-   useEffect(() => {
-     loadData();
 
+   useEffect(() => {
+      loadData();
    }, []);
 
 

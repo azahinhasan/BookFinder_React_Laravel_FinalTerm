@@ -7,6 +7,8 @@ const EmployeeList=()=> {
    const [data,setData]=useState([]);
 
 
+
+
    useEffect(() => {
       loadData();
 
@@ -26,8 +28,8 @@ const EmployeeList=()=> {
 
 
 
-  return (
-    <div className={Classes.App}>
+return (
+   <div className={Classes.App}>
       <h3>Contact Us List</h3>
 
       <table>
@@ -38,7 +40,6 @@ const EmployeeList=()=> {
             <th>Msg</th>
          </tr>
          {data.map(d=>{
-
             return(
                <tr>
                   <td><a>{d.ID}</a></td>
@@ -50,10 +51,9 @@ const EmployeeList=()=> {
          
          })}
       </table>
-     
       
-    </div>
-  );
+   </div>
+);
 }
 
 export default EmployeeList;
