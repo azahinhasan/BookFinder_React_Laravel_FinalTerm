@@ -31,8 +31,8 @@ const ShopInfo=()=> {
          })
    }
 
-   const chngeVerifyStatus=()=>{
-      axios.post('/shop/details/'+shopID)
+   const chngeVerifyStatus=(status)=>{
+      axios.post('/shop/details/'+shopID+'/'+status)
       .then(r=>{
          console.log(r.data);
          loadData();
@@ -75,8 +75,8 @@ const ShopInfo=()=> {
 
       {validData!=null?
          <div>
-               {d.Verified_Status=='true'? <button className={Classes.buttonRed} onClick={()=>chngeVerifyStatus()}>Not Valid</button>
-                  : <button className={Classes.buttonGreen} onClick={()=>chngeVerifyStatus()}>VALID</button>}
+               {d.Verified_Status=='true'? <button className={Classes.buttonRed} onClick={()=>chngeVerifyStatus(true)}>Not Valid</button>
+                  : <button className={Classes.buttonGreen} onClick={()=>chngeVerifyStatus(false)}>VALID</button>}
          </div>          
       :null}
       <hr/>

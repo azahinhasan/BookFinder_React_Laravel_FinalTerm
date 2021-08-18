@@ -46,7 +46,7 @@ const ReportList=()=> {
                   <td>{d.reporter}</td>
                   <td>{d.gotReported}</td>
                   <td>{d.text}</td>
-                  <td><div onClick={()=>history.push('/UserInfo/'+d.gotReported)}>Details</div></td>
+                  <td><div className={Classes.actionColmun}  onClick={()=>history.push('/UserInfo/'+d.gotReported)}>Details</div></td>
                </tr>
             )
          

@@ -61,7 +61,7 @@ const EmployeeList=()=> {
     <div className={Classes.App}>
       <h3>Employee List</h3>
       <div>
-         <input onChange={e=>setSearch(e.target.value)}/>
+         <input placeholder="UserID/Email" onChange={e=>setSearch(e.target.value)}/>
          
          <button onClick={()=>searchResult()}>SEARCH</button>
          <br/>
@@ -73,6 +73,7 @@ const EmployeeList=()=> {
          <tr>
             <th>#ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>ProPic</th>
             <th>Rank</th>
             <th>BanStatus</th>
@@ -80,23 +81,26 @@ const EmployeeList=()=> {
             <th>Disable/Enable</th>
          </tr>
          {data.map(d=>{
-
+           
             return(
+               d.ID!=localStorage.getItem('ID')?
                <tr>
                   <td>{d.ID}</td>
                   <td>{d.Name}</td>
+                  <td>{d.Email}</td>
                   <td><img src={require("../../content/proPic/"+d.ProPic).default} width='100px' height='100px'/></td>
                   <td>{d.Rank}</td>
                   <td>{d.BanStatus}</td>
-                  <td style={{color:'blue'}}>
+                  <td style={{color:'blue',cursor:'pointer'}}>
                      <div onClick={()=>acountAction(d.Rank,d.ID)}>{d.Rank=='Admin'?'Demotion':'Promotion'}</div>
                   </td>
-                  <td style={{color:'red'}}>
+                  <td style={{color:'red',cursor:'pointer'}}>
                      <div onClick={()=>acountAction(d.BanStatus,d.ID)}>{d.BanStatus=='true'?'Enable':'Disable'}</div>
                   </td>
                </tr>
+               :null
             )
-         
+           
          })}
       </table>
      

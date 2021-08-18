@@ -62,7 +62,7 @@ const SubscriptionUserList=()=> {
                   <td>
                      {d.Premium=='true'?'Premium':'Standard'}
                   </td>
-                  <td><div onClick={()=>history.push('/UserInfo/'+d.ID)}>Details</div></td>
+                  <td><div className={Classes.actionColmun} onClick={()=>history.push('/UserInfo/'+d.ID)}>Details</div></td>
                </tr>
             )
          

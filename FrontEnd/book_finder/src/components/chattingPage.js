@@ -32,7 +32,7 @@ const BookList=()=> {
       if(localStorage.getItem('ID')!=''){
          const interval = setInterval(() => {
             loadData();
-         }, 500000);
+         }, 500);
          return () => clearInterval(interval);
       }
      

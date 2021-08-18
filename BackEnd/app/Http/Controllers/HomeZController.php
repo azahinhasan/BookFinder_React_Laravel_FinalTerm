@@ -18,12 +18,11 @@ class HomeZController extends Controller
 
     }
 
-    public function login(){
+    //public function login(){
+    //   return view('Home.loginFrom')->with('msg', '');
+    // }
 
-            return view('Home.loginFrom')->with('msg', '');
-
-    }
-
+    
     public function loginPost(Request $data){
 
        // return $data->Password;
@@ -106,8 +105,9 @@ class HomeZController extends Controller
     }
 
 
-    public function getLoginHistory(){
+    public function getLoginHistory($userID){
         $data =  DB::table('loginhistory')
+                    ->where('UserID',$userID)
                     ->get();
 
         return $data;

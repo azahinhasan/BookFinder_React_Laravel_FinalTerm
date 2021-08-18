@@ -171,7 +171,7 @@ return (
                   <td>{r.October}</td>
                   <td>{r.Amount}</td>
                   <td>{r.Year}</td>
-                  <td style={{color:'blue'}}><div onClick={()=>loadPaymentPart(r.ID)}>click</div></td>
+                  <td className={Classes.actionColmun} ><div onClick={()=>loadPaymentPart(r.ID)}>click</div></td>
                </tr>
             )
          })}

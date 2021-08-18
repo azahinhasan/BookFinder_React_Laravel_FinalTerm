@@ -41,7 +41,7 @@ Route::get('/', function () {
     Route::get('/user/economic/{year}', 'EconomicController@earningData');
     Route::get('/shop/list', 'CustomerController@shopList');
     Route::get('/shop/details/{id}', 'CustomerController@shopVerify');
-    Route::post('/shop/details/{id}', 'CustomerController@shopVerifyConfirm');
+    Route::post('/shop/details/{id}/{status}', 'CustomerController@shopVerifyConfirm');
     Route::get('/user/subscription/pieChart', 'CustomerController@pieChart');
     Route::get('/user/subscription/list/{value}', 'CustomerController@SubscriptionUsersList');
 
@@ -56,7 +56,6 @@ Route::get('/', function () {
 
     //done
     Route::get('/emplpyee/list', 'EmployeeController@list');
-
     Route::get('/chnageEmployeeAccess/{value}/{id}', 'EmployeeController@chnageEmployeeAccess');
     Route::get('/emplpyee/salaryList', 'EmployeeV2Contorller@salaryList');
     Route::get('/employee/giveSalary/{id}', 'EmployeeV2Contorller@giveSalaryOption');
@@ -72,7 +71,7 @@ Route::get('/', function () {
     Route::post('/chatting', 'EmployeeV2Contorller@setMsg');
 
 
-    Route::get('/login_history', 'HomeZController@getLoginHistory');
+    Route::get('/login_history/{userID}', 'HomeZController@getLoginHistory');
     Route::post('/login_history', 'HomeZController@setLoginHistory');
     Route::delete('/login_history/{id}', 'HomeZController@deleteLoginHistory');
 
@@ -80,7 +79,7 @@ Route::get('/', function () {
 
     // Route::get('/user/subscription', 'CustomerController@subscription');
     // Route::post('/user/subscription', 'CustomerController@subscriptionUpdate');
- 
+
     // Route::get('/emplpyee/print/{id}', 'EmployeeController@createSucessPage');
     // Route::post('/emplpyee/print/{id}', 'EmployeeController@createSucessPrint');
     //Employee
@@ -95,7 +94,7 @@ Route::get('/', function () {
     
 
     // Route::get('/emplpyee/update/{id}', 'EmployeeController@editPage2');
-   
+
 
 
 // });

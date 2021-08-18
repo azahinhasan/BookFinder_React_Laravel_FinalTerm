@@ -20,7 +20,6 @@ class VerifyCheckOnlyAdmin
 
         if($request->session()->get('Rank') == 'Admin'){
             return $next($request);
-           
         }else{
             return redirect('/');
         }

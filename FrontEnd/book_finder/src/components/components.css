@@ -8,8 +8,11 @@
 }
 .Link{
    color: white;
-   margin-right: 10px;
-
+   margin-right: 15px;
+}
+.Link:hover{
+   color: #5d5fc7;
+   background-color: white;
 }
 
 button,input[type="submit"]{
@@ -82,7 +85,16 @@ table{
    color: white;
  }
 
- 
+.actionColmun{
+   cursor:pointer;
+   color:green;
+}
+
+.actionColmun:hover{
+   cursor:pointer;
+   color:rgb(2, 67, 71);
+}
+
 
 .box{
    /* content: ""; */

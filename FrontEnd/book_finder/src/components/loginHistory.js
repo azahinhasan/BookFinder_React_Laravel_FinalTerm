@@ -16,7 +16,7 @@ const LoginHistory=()=> {
 
 
    const loadData=()=>{
-      axios.get('/login_history')
+      axios.get('/login_history/'+localStorage.getItem('ID'))
          .then(r=>{
           //  console.log(r.data);
             setData(r.data);

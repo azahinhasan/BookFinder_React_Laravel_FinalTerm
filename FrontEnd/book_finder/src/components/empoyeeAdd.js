@@ -40,7 +40,7 @@ const EmployeeAdd=()=> {
          .then(r=>{
 
             console.log(r.data)
-
+            event.preventDefault();
             history.push('/PrintEmployeeInfo/'+r.data);
 
   

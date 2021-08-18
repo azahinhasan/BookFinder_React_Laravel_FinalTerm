@@ -5,6 +5,7 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use PDF;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 class EmployeeController extends Controller
 {
      //regEmployee
@@ -19,12 +20,12 @@ class EmployeeController extends Controller
         public function createSucess(Request $req){
 
                 $ProPicNmae ='';
-
+               
                 $temp = DB::table('users')
                 ->where('Email', $req->Email )
                 ->get();
                 
-
+      
                 // if(count($temp)>0){
                 //         return 'Email Already exist!';
                 //         //return view('Employee.regEmployee')->with('print',false)->with('msg','Email Aready Taken');
@@ -93,7 +94,7 @@ class EmployeeController extends Controller
 
                 return $temp->ID;
                 //return view('Employee.regEmployee')->with('print',false)->with('msg','Reg failed!');
-        
+                return $req->Email;
         }
         public function createSucessPage($id){
 

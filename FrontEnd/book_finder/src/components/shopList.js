@@ -45,7 +45,7 @@ const ShopList=()=> {
                   <td>{d.Shop_id}</td>
                   <td>{d.Shop_Name}</td>
                   <td>{d.Verified_Status}</td>
-                  <td><div onClick={()=>history.push('/ShopInfo/'+d.Shop_id)}>Details</div></td>
+                  <td><div className={Classes.actionColmun}  onClick={()=>history.push('/ShopInfo/'+d.Shop_id)}>Details</div></td>
                </tr>
             )
          

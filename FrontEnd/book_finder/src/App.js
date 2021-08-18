@@ -4,6 +4,7 @@ import Classes from './App.css';
 import axios from './hoc/auxx';
 import NavBar from './components/navBar';
 import HomeNavBar from './components/homeNavbar';
+import NavBarModerator from './components/navBarModerator';
 
 import EmployeeList from './components/employeeList';
 import EmployeeSalaryList from './components/employeeSalaryList';
@@ -93,7 +94,7 @@ const App=()=> {
 
           :
           <div>
-            <NavBar/>
+            <NavBarModerator/>
             <Switch>
           
               <Route path="/BookList" component={BookList}/>
