@@ -94,7 +94,7 @@ const UserInfo=()=> {
          </tr>
          {userReports.map(d=>{
             return(
-               <tr>
+               <tr key={d.ID}>
                   <td>{d.reporter}</td>
                   <td>{d.gotReported}</td>
                   <td>{d.text}</td>

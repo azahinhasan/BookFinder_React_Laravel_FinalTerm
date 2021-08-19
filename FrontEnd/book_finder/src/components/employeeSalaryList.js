@@ -156,7 +156,7 @@ return (
          </tr>
          {data.map(r=>{
             return(
-               <tr>
+               <tr key={r.ID}>
                   <td>{r.userId}</td>
                   <td>{r.userName}</td>
                   <td>{r.January}</td>

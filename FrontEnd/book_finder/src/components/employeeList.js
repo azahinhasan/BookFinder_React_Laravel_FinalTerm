@@ -27,16 +27,19 @@ const EmployeeList=()=> {
    }
 
    const acountAction=(action,id)=>{
-      
-      if(action=='' || action==null || action==0){
-         action='false';
-      }
+      if (window.confirm('Are You Sure?')) {
 
-      axios.get('/chnageEmployeeAccess/'+action+'/'+id)
-         .then(r=>{
-           
-            setData(r.data);
-         })
+       
+         if(action=='' || action==null || action==0){
+            action='false';
+         }
+
+         axios.get('/chnageEmployeeAccess/'+action+'/'+id)
+            .then(r=>{
+            
+               setData(r.data);
+            })
+      }
    }
 
    const searchResult=()=>{
@@ -84,7 +87,7 @@ const EmployeeList=()=> {
            
             return(
                d.ID!=localStorage.getItem('ID')?
-               <tr>
+               <tr key={d.ID}>
                   <td>{d.ID}</td>
                   <td>{d.Name}</td>
                   <td>{d.Email}</td>
