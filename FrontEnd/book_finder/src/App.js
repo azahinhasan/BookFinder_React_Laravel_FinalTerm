@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import {Route,Switch,useHistory,Redirect} from 'react-router-dom';
 import Classes from './App.css';
 import axios from './hoc/auxx';
@@ -30,6 +30,7 @@ import Login from './components/loginPage';
 const App=()=> {
 
   const history = useHistory();
+  const [check,setCheck]=useState(true);
 
   useEffect(()=>{
     axios.post('/verify',{
@@ -45,9 +46,10 @@ const App=()=> {
             localStorage.removeItem('ID');
             localStorage.removeItem('AccountvaVlidity');
 
-            history.push('/ReportList');
+           // history.push('/ReportList');
 
-            console.log(r.data,'dd');
+            //console.log(r.data,'dd');
+            setCheck(false);
             //window.location.reload();
           }
       })
@@ -58,7 +60,7 @@ const App=()=> {
 
     
    
-        {localStorage.getItem('Email')==null && localStorage.getItem('AccountvaVlidity')!=true? 
+        {localStorage.getItem('Email')==null && localStorage.getItem('AccountvaVlidity')!=true || !check? 
           <div>
             <HomeNavBar/>
             <Switch>

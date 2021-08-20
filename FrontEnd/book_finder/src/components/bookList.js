@@ -40,7 +40,7 @@ const BookList=()=> {
          <div className={Classes.box} class="card">
             {data.map(d=>{
                return(
-                  <div className={Classes.DataBox}>
+                  <div className={Classes.DataBox} key={d.ID}>
                      <table className={''} style={{width:'450px',borderRadius:'15px'}}>
                         <tr>
                            <th></th>
