@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 17, 2021 at 07:50 PM
+-- Generation Time: Aug 21, 2021 at 05:52 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -114,7 +114,14 @@ INSERT INTO `chattingmsg` (`ID`, `Name`, `UserID`, `Msg`, `Rank`) VALUES
 (5, 'a', 4, 'yoo', 'Admin'),
 (6, 'a', 4, 'yoojhfg', 'Admin'),
 (7, 'a', 4, 'fffffffffffffffffffffffffggdrtghgfsd gsdhs af', 'Admin'),
-(8, 'a', 4, 'd', 'Admin');
+(8, 'a', 4, 'd', 'Admin'),
+(9, 'df', 43, '123', 'Moderator'),
+(10, 'a', 4, '125', 'Admin'),
+(11, 'a', 4, 'yo', 'Admin'),
+(12, 'test3', 44, 'heloo', 'Admin'),
+(13, 'test3', 44, 'heloo', 'Admin'),
+(14, 'a', 4, '123', 'Admin'),
+(15, 'df', 43, '123', 'Moderator');
 
 -- --------------------------------------------------------
 
@@ -222,7 +229,13 @@ INSERT INTO `employeesalary` (`ID`, `userId`, `userName`, `Amount`, `January`, `
 (52, '26', 'ttttttttt', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
 (53, '27', 'rttr', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
 (54, '30', 'dfadsfsan', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
-(55, '35', 'ddfsfd', NULL, 'true', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021);
+(55, '35', 'ddfsfd', NULL, 'true', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
+(56, '40', 'Zahin Hasan', '500', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
+(57, '43', 'df', '5000', 'false', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
+(58, '43', 'df', '5000', NULL, 'true', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2022),
+(59, '44', 'test3', '5000', 'true', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021),
+(60, '44', 'test3', '5000', 'true', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2022),
+(61, '45', 'test123', '5000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2021);
 
 -- --------------------------------------------------------
 
@@ -243,7 +256,12 @@ CREATE TABLE `loginhistory` (
 --
 
 INSERT INTO `loginhistory` (`ID`, `IP`, `UserID`, `Location`, `Time`) VALUES
-(6, '103.87.213.244', '4', 'Dhaka,Bangladesh', '2021-08-17 17:35:05');
+(9, '8.25.96.27', '43', 'Singapore,Singapore', '2021-08-18 02:39:24'),
+(13, '51.79.161.248', '4', 'Singapore,Singapore', '2021-08-19 07:10:52'),
+(14, '103.87.213.244', '2', 'Dhaka,Bangladesh', '2021-08-19 07:11:16'),
+(15, '139.99.88.12', '44', 'Singapore,Singapore', '2021-08-20 12:34:44'),
+(16, '103.87.213.244', '43', 'Dhaka,Bangladesh', '2021-08-20 12:56:52'),
+(17, '103.87.213.244', '4', 'Dhaka,Bangladesh', '2021-08-20 14:43:22');
 
 -- --------------------------------------------------------
 
@@ -289,8 +307,8 @@ CREATE TABLE `shop` (
 --
 
 INSERT INTO `shop` (`Shop_id`, `Shop_Name`, `Shopper_Name`, `Shop_Address`, `Verified_Status`, `Shop_Licence`, `Phone_No`, `User_Id`) VALUES
-(1, 'abc', 'abc', 'abc', 'true', '123', '123', '1'),
-(2, 'ghj', 'ghj', 'ghj', 'false', '555', '555', '2');
+(1, 'Shop1', 'abc', 'abc', 'true', '123', '123', '1'),
+(2, 'Shop2', 'ghj', 'ghj', 'false', '555', '555', '2');
 
 -- --------------------------------------------------------
 
@@ -401,7 +419,11 @@ INSERT INTO `users` (`ID`, `Name`, `Email`, `Rank`, `DOB`, `Address`, `ProPic`, 
 (26, 'ttttttttt', 'tttttttt@gmail.com', 'Admin', '2021-08-20', 'Dhaka', 'SharefbdScreenshot.jpg', '0', '346514X30671508', NULL),
 (27, 'rttr', 'tret@gmail.com', 'Admin', '2021-08-12', 'Dhaka', 'SharefbdScreenshot.jpg', '0', '86137838446J433', NULL),
 (30, 'dfadsfsan', 'fdf@gmail.com', 'Admin', '2021-08-18', 'Dhaka', '1151027.jpg', '0', '533645Y17651554', NULL),
-(35, 'ddfsfd', 'fasddsf@gmail.com', 'Moderator', '12-12-1999', 'Dhaka', '1151027.jpg', '0', '76845222482814I', NULL);
+(35, 'ddfsfd', 'fasddsf@gmail.com', 'Moderator', '12-12-1999', 'Dhaka', '1151027.jpg', '0', '76845222482814I', NULL),
+(40, 'Zahin Hasan', 'daafsd@gmail.com', 'Admin', '12-12-1999', 'Dhaka', 'abc.jpg', '0', '575J61605873718', NULL),
+(43, 'df', 'df', 'Moderator', '12-12-1999', 'Dhaka', 'SharefbdScreenshot.jpg', '0', 'df', NULL),
+(44, 'test3', 'test3@gmail.com', 'Admin', '12-12-1999', 'Dhaka', 'abc.jpg', '0', '19453511224615A', NULL),
+(45, 'test123', 'test123@gmail.com', 'Moderator', '12-12-1999', 'Dhaka', 'abc.jpg', '0', '59025366R641120', NULL);
 
 --
 -- Indexes for dumped tables
@@ -507,7 +529,7 @@ ALTER TABLE `book_categories`
 -- AUTO_INCREMENT for table `chattingmsg`
 --
 ALTER TABLE `chattingmsg`
-  MODIFY `ID` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(254) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -525,13 +547,13 @@ ALTER TABLE `earnings_data`
 -- AUTO_INCREMENT for table `employeesalary`
 --
 ALTER TABLE `employeesalary`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `loginhistory`
 --
 ALTER TABLE `loginhistory`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `reports`
@@ -567,7 +589,7 @@ ALTER TABLE `subscriptionusers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
